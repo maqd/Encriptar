@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+
+:root {
+    --color-primario: #000000;
+    --color-secundario: #F6F6F6;
+    --color-terciario: #22D4FD;
+    --color-hover: #272727;
+
+    --fuente-krona: 'Krona One', sans-serif;
+    --fuente-montserrat: 'Montserrat', sans-serif;
+    background-color: #E9ECF8
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los botones */
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Un verde más oscuro al pasar el mouse */
+  }
+
+  .row {
+    display: flex;
+    gap: 10px; /* Espacio entre columnas */
+  }
+  .col {
+    padding: 10px;
+
+  }
+  .col2 {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+  }
+  
+  /* Primera columna más ancha (por ejemplo, el doble de la segunda) */
+  .col:first-child {
+    flex: 2;
+  }
+  
+  /* Segunda columna (ajustará al espacio restante) */
+  .col:nth-child(2) {
+    flex: 1;
+  }
+
+  /* Responsive: para pantallas menores a 768px (similar a md en Bootstrap) */
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+    .oculta {
+        display: none;
+    }
+  }

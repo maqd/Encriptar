@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,   
+ initial-scale=1.0">
+    <title>Portafolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>   
+
+    <header class="header">
+        <nav class="header__menu">
+            <a>
+                <img src="./Imagenes/Logo.png">
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="presentacion__contenido">
+        </section>
+
+        <div class="row">
+            <div class="col">
+                <p style="font-size: 50px; color: #0A3871;">Ingrese el texto aquí</p>
+                <textarea id="Text1" cols="80%" rows="20" class="transparent-textarea" oninput="soloMinusculas(this)">
+                </textarea>
+                <p style="font-size: 10px; color: #0A3871;">Solo letras minúsculas y sin acentos</p>
+                <div class="button-container">
+                    <button onclick="Encriptar()"> Encriptar </button>
+                    <button onclick="Desencriptar()">Desencriptar</button>
+                </div>
+            </div>
+            <div class="col2" id="image-container">
+                <div class="image-container">
+                    <img src="./Imagenes/Muñeco.png" class="oculta" alt="Descripción de la imagen">
+                </div>
+                <p>Ningún mensaje fue encontrado</p>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const imageContainer = document.getElementById("image-container");
+        const originalContent = imageContainer.innerHTML;
+
+        function Encriptar() {
+            const textoOriginal = document.getElementById("Text1").value;
+
+            if (textoOriginal === "") {
+                imageContainer.innerHTML = originalContent;
+            } else {
+                const desplazamiento = 3;
+                const textoCifrado = cifrarCesar(textoOriginal, desplazamiento);
+                imageContainer.innerHTML = textoCifrado;
+            }
+        }
+
+        function cifrarCesar(texto, desplazamiento) {
+            texto = texto.toLowerCase();
+            let resultado = "";
+            const alfabeto = "abcdefghijklmnopqrstuvwxyz";
+
+            for (let i = 0; i < texto.length; i++) {
+                const indiceLetra = alfabeto.indexOf(texto[i]);
+                if (indiceLetra !== -1) {
+                    const nuevoIndice = (indiceLetra + desplazamiento) % 26;
+                    resultado += alfabeto[nuevoIndice];
+                } else {
+                    resultado += texto[i];
+                }
+            }
+
+            return resultado;
+        }
+
+        function Desencriptar() {
+            const textoCifrado = document.getElementById("Text1").value;
+
+            if (textoCifrado === "") {
+                imageContainer.innerHTML = originalContent;
+            } else {
+                const desplazamiento = 3;
+                const textoDescifrado = desencriptarCesar(textoCifrado, desplazamiento);
+
+                if (textoCifrado.length === textoDescifrado.length) {
+                    imageContainer.innerHTML = textoDescifrado;
+                } else {
+                    imageContainer.innerHTML = "Cadena no válida";
+                }
+            }
+        }
+
+        function desencriptarCesar(textoCifrado, desplazamiento) {
+            return cifrarCesar(textoCifrado, -desplazamiento);
+        }
+
+        function soloMinusculas(textarea) {
+            let valor = textarea.value;
+
+            valor = valor.replace(/[^a-z]/gi, '');
+
+            textarea.value = valor;
+        }
+
+ 
+    </script>
+</body>
+</html>
