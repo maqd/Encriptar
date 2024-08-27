@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
 
 
 :root {
@@ -15,12 +14,13 @@
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espacio entre los botones */
+    gap: 20px;
   }
   
   button {
     padding: 10px 20px;
-    background-color: #4CAF50; /* Color verde */
+    background-color: #052051;
+
     color: white;
     border: none;
     border-radius: 4px;
@@ -29,16 +29,23 @@
   }
   
   button:hover {
-    background-color: #45a049; /* Un verde más oscuro al pasar el mouse */
+    background-color: #AAB2D5; 
   }
 
   .row {
     display: flex;
-    gap: 10px; /* Espacio entre columnas */
+    gap: 10px; 
   }
   .col {
     padding: 10px;
 
+  }
+  .Buton1 {
+    background-color: #052051;
+
+  }
+  .Buton2{
+    background-color: #bec6e6;
   }
   .col2 {
     padding: 10px;
@@ -47,17 +54,21 @@
     border-radius: 10%;
   }
   
-  /* Primera columna más ancha (por ejemplo, el doble de la segunda) */
+
   .col:first-child {
     flex: 2;
   }
   
-  /* Segunda columna (ajustará al espacio restante) */
+
   .col:nth-child(2) {
     flex: 1;
   }
+  .textarea {
+    max-width: 100%;
+    width: 95%; /* adjust to your desired width */
+    resize: vertical; /* enable vertical resizing */
+  }
 
-  /* Responsive: para pantallas menores a 768px (similar a md en Bootstrap) */
   @media (max-width: 768px) {
     .row {
       flex-direction: column;
@@ -66,3 +77,4 @@
         display: none;
     }
   }
+ 
